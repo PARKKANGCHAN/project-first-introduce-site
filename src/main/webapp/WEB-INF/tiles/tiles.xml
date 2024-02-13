@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+
+	<definition name="admin.layout" template="/WEB-INF/views/admin/layout.jsp">
+		<put-attribute name="title" value="데이터베이스" />
+		<put-attribute name="header" value="/WEB-INF/views/admin/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/admin/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/admin/footer.jsp" />
+	</definition>
+	
+	<definition name="admin/*" extends="admin.layout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp" />
+	</definition>
+	
+	<definition name="admin/pages/*" extends="admin.layout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/pages/{1}.jsp" />
+	</definition>
+
+	<!-- main layout -->
+	<definition name="main.layout" template="/WEB-INF/views/teahouse/layout.jsp">
+		<put-attribute name="title" value="카페사이트" />
+		<put-attribute name="header" value="/WEB-INF/views/teahouse/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/teahouse/footer.jsp" />
+	</definition>
+	
+	<definition name="*/*" extends="main.layout">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="*/*/*" extends="main.layout">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+	</definition>
+
+	
+</tiles-definitions>
