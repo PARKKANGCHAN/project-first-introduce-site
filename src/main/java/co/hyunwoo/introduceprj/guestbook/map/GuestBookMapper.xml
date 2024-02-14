@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.hyunwoo.introduceprj.guestbook.map.GuestBookMapper">
+
+	<select id="messageAllList">
+	SELECT *
+	FROM DEV_GUESTBOOK
+	ORDER BY MESSAGE_NO DESC;
+	</select>
+	
+	<insert id="messageInsert">
+	INSERT INTO DEV_GUESTBOOK(
+				MESSAGE_WRITER_NAME,
+				MESSAGE_WRITER_EMAIL,
+				MESSAGE_SUBJECT)
+	VALUES (
+			#{messageWriterName},
+			#{messageWriterEmail},
+			#{messageSubject})
+	</insert>
+	
+</mapper>
